@@ -154,7 +154,7 @@ export default function Table() {
 
   return (
     <div className="w-full">
-      <Card className="relative h-full overflow-scroll p-4 w-full">
+      <Card placeholder={""} className="relative h-full overflow-scroll p-4 w-full">
       <div className='flex flex-row gap-3 rounded-full border-gray-500 bg-gray-100 border-[1px] p-2 pl-4 py-1 items-center min-w-[400px]400px] self-end mb-10'>
       <FaSearch color='gray'></FaSearch>
       <input type="text" 
@@ -169,6 +169,7 @@ export default function Table() {
             {TABLE_HEAD.map((head) => (
               <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 py-4">
                 <Typography
+                placeholder={""} 
                   variant="small"
                   color="blue-gray"
                   className="font-bold leading-none opacity-70"
@@ -187,18 +188,22 @@ export default function Table() {
               return (
                 <tr key={index}>
                   <td className={classes}>
-                    <Typography variant="small" color="blue-gray" className="font-normal">
+                    <Typography variant="small" color="blue-gray" 
+                    placeholder={""} className="font-normal">
                       <a href={url} className="text-blue-500">{nama}</a>
                     </Typography>
                   </td>
                   
                   <td className={classes}>
-                    <Typography variant="small" color="blue-gray" className="font-normal">
+                    <Typography variant="small" color="blue-gray" 
+                    placeholder={""} className="font-normal">
                       {contact}
                     </Typography>
                   </td>
                   <td className={classes}>
-                    <Typography variant="small" color="blue-gray" className="font-normal">
+                    <Typography 
+                    
+                    placeholder={""} variant="small" color="blue-gray" className="font-normal">
                       {email}
                     </Typography>
                   </td>

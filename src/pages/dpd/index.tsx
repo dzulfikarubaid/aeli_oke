@@ -1,7 +1,5 @@
 import React from 'react'
 import Table from './Table'
-import Content from '../Content'
-import NoNavbar from '../NoNavbar'
 import Navbar from './SpecialNavbar'
 import useResponsive from '@/components/useResponsive'
 const Dpd = () => {
