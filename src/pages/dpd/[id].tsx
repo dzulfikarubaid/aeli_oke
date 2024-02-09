@@ -1,15 +1,11 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import Content from "../Content";
-import axios from "axios";
 import { statesData } from "@/components/Map/data";
 import Head  from "next/head";
 import Map from "@/components/Map";
-import Calendar from "react-calendar";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
-import Navbar from "../components/Dropdown";
-import NoNavbar from "../NoNavbar";
+
 import Footer from "../Footer2";
 import useResponsive from "@/components/useResponsive";
 import WithNavbar from "../navigation";
