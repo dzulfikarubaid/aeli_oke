@@ -1,10 +1,10 @@
 import React from 'react'
-import Content from '../Content'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import NoNavbar from '../NoNavbar'
+
 import useResponsive from '@/components/useResponsive'
-import Footer from '../Footer'
+
 
 
 const pengurus = [
