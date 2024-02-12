@@ -4,6 +4,7 @@ import { motion, useAnimation, useDragControls, useInView, useScroll, useTransfo
 import Card from './card'
 import Map from '@/components/Map'
 import Link from 'next/link'
+
 import { FaAngleDown, FaAngleUp, FaFacebook, FaInstagram, FaYoutube, } from 'react-icons/fa6'
 import { MdOutlineClose, MdOutlineEmail } from 'react-icons/md'
 import { BiLogoInstagram, BiLogoYoutube } from 'react-icons/bi'
