@@ -24,9 +24,7 @@ function WithNavbar(props: any) {
     // Unsubscribe listener when component unmounts
     return () => unsubscribe();
   }, [active]); 
-const Navigation = () => {
-  
-  function handleSignOut(){
+    function handleSignOut(){
     signOut(auth)
     .then(()=>{
       setActive("")
@@ -36,6 +34,9 @@ const Navigation = () => {
     })
     
   }
+const Navigation = () => {
+  
+
   return (
     <div className=' z-[99999999] fixed top-0 py-6 items-center px-20 flex-row w-full justify-between backdrop-blur-3xl bg-transparent text-teks flex '>
       <a href={'/'} className='flex flex-row gap-3 justify-center items-center'>
@@ -82,7 +83,7 @@ const Navigation = () => {
         <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
       </a>
-    <div className='flex flex-row gap-2'>
+    <div className='flex flex-row gap-4 items-center justify-center'>
     <h1>{active ? active : ""}</h1>
     <button onClick={()=>setOpenMenu(!openmenu)}>
     {openmenu ? <BiX size={35}></BiX> : <BiMenu size={35}></BiMenu>}</button></div>
@@ -99,7 +100,7 @@ const Navigation = () => {
         <a href={'/articles'}>Articles</a>
         <a href={'/news'}>News</a>
 <div className='h-[2px] w-full bg-gradient-to-r from-transparent via-subteks/40 to-transparent'></div>
-  {!active && <div className=' w-full flex flex-row justify-center gap-8 items-center'><a href={'/signup'} className='border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center'>Sign Up</a><a className='border-[1px] border-white/20 rounded-2xl p-2 px-12 text-center bg-gradient-to-br from-white/20 to-transparent ' href={'/signin'} >Sign In</a></div> }
+  {!active ? <div className=' w-full flex flex-row justify-center gap-8 items-center'><a href={'/signup'} className='border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center'>Sign Up</a><a className='border-[1px] border-white/20 rounded-2xl p-2 px-12 text-center bg-gradient-to-br from-white/20 to-transparent ' href={'/signin'} >Sign In</a></div> : <button className='w-full border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center' onClick={handleSignOut}></button>}
 
     </div>
     }

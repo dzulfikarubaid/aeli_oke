@@ -25,8 +25,6 @@ function WithNavbar(props: any) {
     // Unsubscribe listener when component unmounts
     return () => unsubscribe();
   }, [active]); 
-const Navigation = () => {
-  
   function handleSignOut(){
     signOut(auth)
     .then(()=>{
@@ -37,6 +35,9 @@ const Navigation = () => {
     })
     
   }
+const Navigation = () => {
+  
+  
   return (
     <div className=' z-[99999999] fixed top-0 py-6 items-center px-20 flex-row w-full justify-between backdrop-blur-3xl bg-transparent text-teks flex '>
       <Link href={'/'} className='flex flex-row gap-3 justify-center items-center'>
@@ -53,7 +54,7 @@ const Navigation = () => {
       </div>
       {
         active ? 
-        <div className='flex flex-row gap-4 items-center'>
+        <div className='flex flex-row gap-4 items-center justify-center'>
         <h1>{active}</h1>
         <button onClick={handleSignOut} className='border-[1px] border-white/20 rounded-2xl p-2 px-4' >Sign Out</button>
       </div>
@@ -83,7 +84,7 @@ const Navigation = () => {
         <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
       </Link>
-    <div className='flex flex-row gap-2'>
+    <div className='flex flex-row gap-4 items-center justify-center'>
     <h1>{active ? active : ""}</h1>
     <button onClick={()=>setOpenMenu(!openmenu)}>
     {openmenu ? <BiX size={35}></BiX> : <BiMenu size={35}></BiMenu>}</button></div>
@@ -100,7 +101,7 @@ const Navigation = () => {
         <Link href={'/articles'}>Articles</Link>
         <Link href={'/news'}>News</Link>
 <div className='h-[2px] w-full bg-gradient-to-r from-transparent via-subteks/40 to-transparent'></div>
-  {!active && <div className=' w-full flex flex-row justify-center gap-8 items-center'><Link href={'/signup'} className='border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center'>Sign Up</Link><Link className='border-[1px] border-white/20 rounded-2xl p-2 px-12 text-center bg-gradient-to-br from-white/20 to-transparent ' href={'/signin'} >Sign In</Link></div> }
+  {!active ? <div className=' w-full flex flex-row justify-center gap-8 items-center'><Link href={'/signup'} className='border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center'>Sign Up</Link><Link className='border-[1px] border-white/20 rounded-2xl p-2 px-12 text-center bg-gradient-to-br from-white/20 to-transparent ' href={'/signin'} >Sign In</Link></div>: <button className='w-full border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center' onClick={handleSignOut}></button> }
 
     </div>
     }
