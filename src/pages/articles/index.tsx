@@ -63,12 +63,13 @@ const Articles = () => {
           {
             articles.map((item: any) => {
               return (
-                <Link key={item.id} href={`/articles/${item.id}`} className={`rounded-2xl sm:p-8 w-[160px]  sm:w-[380px] hover:border-white/20 hover:bg-gradient-to-t hover:from-white/10 hover:to-transparent flex flex-col text-subteks mt-4 justify-between`}>
+                <Link key={item.id} href={`/articles/${item.id}`} className={`rounded-2xl sm:p-8 p-4 w-full sm:w-[380px] hover:border-white/20 hover:bg-gradient-to-t hover:from-white/10 hover:to-transparent flex flex-col text-subteks mt-4 justify-between`}>
                   <div>
-                  <img className='w-full h-[180px] object-contain rounded-xl bg-black/40' src={item.image} alt="" />
+                  <img className='w-full h-[180px] object-contain rounded-2xl bg-black/40' src={item.image} alt="" />
                   <h1 className='text-sm text-teks my-5'>{item.name}</h1>
-                  <h1 className='text-2xl font-bold text-teks mb-2'>{item.title.toUpperCase()}</h1>
-                  <div dangerouslySetInnerHTML={{ __html: shortenText(item.content, 50) }} /></div>
+                  <h1 className='sm:text-2xl text-xl font-bold text-teks mb-2'>{item.title.toUpperCase()}</h1>
+                  <div dangerouslySetInnerHTML={{ __html: shortenText(item.content, 50) }} />
+                  </div>
                   <div className='w-full flex flex-row-reverse mt-2'>
                   <h1 className='text-sm text-teks'>{formatTimeLeft(item.create_at)}</h1>
                   </div>

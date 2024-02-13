@@ -24,7 +24,7 @@ function Mapss(props: any) {
 
   return (
     <div>
-      <MapContainer id='map-container' center={[-2.8182097651959817, 118.00233509522967]} zoom={5} scrollWheelZoom={false} dragging={false} className='w-full h-[300px] sm:h-[500px] bg-transparent overflow-hidden object-contain' zoomControl={false} attributionControl={false} boxZoom={false} doubleClickZoom={false} >
+      <MapContainer id='map-container' center={[-2.8182097651959817, 118.00233509522967]} zoom={3} scrollWheelZoom={false} dragging={false} className='w-full h-[200px] sm:h-[500px] bg-transparent overflow-hidden object-contain' zoomControl={false} attributionControl={false} boxZoom={false} doubleClickZoom={false} >
         <GeoJSON data={statesData} style={
           (feature: any) => ({
 

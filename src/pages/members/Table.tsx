@@ -155,7 +155,7 @@ export default function Table() {
   return (
     <div className="w-full bg-dongker">
       <div className="w-full flex justify-center items-center">
-     <div className='flex flex-row gap-3 rounded-full border-gray-500 bg-gray-500/20 border-[1px]  pl-4 py-1 items-center min-w-[400px] self-end mb-10 text-teks'>
+     <div className='flex flex-row gap-3 rounded-full border-gray-500 bg-gray-500/20 border-[1px]  pl-4 py-2 items-center sm:w-[400px] self-end mb-10 text-teks w-full'>
       <FaSearch color='gray'></FaSearch>
       <input type="text" 
         placeholder="Cari nama cabang..."
@@ -166,7 +166,7 @@ export default function Table() {
       <Card  placeholder={""} className="relative overflow-scroll w-full items-center flex justify-center bg-dongker">
      
  
-        <table className="w-full table-auto text-left">
+        <table className="w-full table-fixed text-left">
           <thead>
           <tr>
             {TABLE_HEAD.map((head) => (

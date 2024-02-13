@@ -32,9 +32,12 @@ const SignUp = () => {
             });
     }
     return (
-        <div className='flex flex-col justify-center items-center backdrop-blur-3xl bg-transparent h-screen gap-8 text-white'>
-
-            <div className='p-8 border-2 border-subteks/20 rounded-2xl flex flex-col gap-4 w-[400px] bg-gradient-to-br from-teks/20 to-transparent'>
+        <div className='flex flex-col justify-center items-center backdrop-blur-3xl px-8 bg-transparent h-screen gap-8 text-white'>
+            <Link href={'/'} className='flex flex-row gap-3 justify-center items-center'>
+        <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
+        <h1>AELI</h1>
+      </Link>
+            <div className='p-8 border-2 border-subteks/20 rounded-2xl flex flex-col gap-4 sm:w-[400px] w-full bg-gradient-to-br from-teks/20 to-transparent'>
 
                 <h1 className='text-3xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' >Sign Up</h1>
                 

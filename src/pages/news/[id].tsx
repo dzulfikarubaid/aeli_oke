@@ -34,14 +34,14 @@ import WithNavbar from "../navigation";
 import Footer from "../Footer2";
 
 
-function DetailArticles() {
-  const [selectedArticle, setSelectedArticle] = useState<DataItem | null>(null);
+function Detailnews() {
+  const [selectednew, setSelectednew] = useState<DataItem | null>(null);
   const [searchInput, setSearchInput] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [value, setValue] = useState<DataItem[]>([]);
   const { query } = useRouter();
   const router = useRouter();
-  const articleTitle = selectedArticle ? selectedArticle.title : "Artikel tidak ditemukan";
+  const newTitle = selectednew ? selectednew.title : "Berita tidak ditemukan";
   const [share, setShare] = useState(false);
   const {isDesktop, isTablet} = useResponsive()
 
@@ -50,23 +50,23 @@ function DetailArticles() {
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const querySnapshot = await getDocs(collection(fire, 'articles'));
-      const articles:any = [];
+      const querySnapshot = await getDocs(collection(fire, 'news'));
+      const news:any = [];
       querySnapshot.forEach((doc) => {
-        articles.push({
+        news.push({
           id: doc.id,
           ...doc.data()
         });
       });
-      setValue(articles);
+      setValue(news);
 
-      // Jika Anda ingin menampilkan artikel yang dipilih berdasarkan query.id
-      const selectedArticle = articles.find((item:any) => item.id === query.id);
-      if (selectedArticle) {
-        setSelectedArticle(selectedArticle);
+      // Jika Anda ingin menampilkan Berita yang dipilih berdasarkan query.id
+      const selectednew = news.find((item:any) => item.id === query.id);
+      if (selectednew) {
+        setSelectednew(selectednew);
       }
     } catch (error) {
-      console.error('Error fetching articles: ', error);
+      console.error('Error fetching news: ', error);
     }
   };
 
@@ -77,7 +77,7 @@ useEffect(() => {
   const handleSearchSubmit = (e: any) => {
     e.preventDefault();
     // Membuat URL dengan parameter pencarian dan mengarahkan pengguna
-    const url = `/articles?search=${searchInput}`;
+    const url = `/news?search=${searchInput}`;
     router.push(url);
   };
 
@@ -128,12 +128,12 @@ useEffect(() => {
     <div className="flex flex-col justify-center items-center pt-20 bg-gradient-to-b from-dongker via-purple-950/50 to-dongker h-fit">
      
        <div className={`flex flex-col justify-center items-center w-full px-6`}>
-        {selectedArticle ? (
+        {selectednew ? (
           <div className={`flex ${!isDesktop ? 'w-full' : 'w-[1000px]'} flex-col gap-10 justify-center items-center `}>
-            <h1 className={`font-extrabold ${!isDesktop ? 'text-[20px]' : 'text-[40px]'}`}>{articleTitle}</h1>
+            <h1 className={`font-extrabold ${!isDesktop ? 'text-[20px]' : 'text-[40px]'}`}>{newTitle}</h1>
             <div className="flex flex-col w-full">
-              <Link className='hover:border-b w-fit hover:border-black' href={`/profile/${selectedArticle.name}`}>{selectedArticle.name}</Link>
-              <h1>Diposting {formatTimeLeft(selectedArticle.create_at)}</h1>
+              <Link className='hover:border-b w-fit hover:border-black' href={`/profile/${selectednew.name}`}>{selectednew.name}</Link>
+              <h1>Diposting {formatTimeLeft(selectednew.create_at)}</h1>
               
               <div className="flex flex-row justify-between items-center mt-10 p-3 border-t border-b border-white/20">
                 <div className="flex flex-row gap-2">
@@ -143,11 +143,11 @@ useEffect(() => {
                 {
                 share ? 
                 <div className="flex flex-row gap-6">
-              <WhatsappShareButton title={`Baca artikel dari ${selectedArticle.name} dengan judul ${selectedArticle.title}`} separator=" " url={`https://aeli.vercel.app/articles/${selectedArticle.id}`}>
+              <WhatsappShareButton title={`Baca berita dari ${selectednew.name} dengan judul ${selectednew.title}`} separator=" " url={`https://aeli.vercel.app/news/${selectednew.id}`}>
                 <FaWhatsapp size={22}></FaWhatsapp>
               </WhatsappShareButton>
               <FacebookShareButton
-                url={`https://aeli.vercel.app/articles/${selectedArticle.id}`}
+                url={`https://aeli.vercel.app/news/${selectednew.id}`}
             
                 hashtag={"#aeli"}
               >
@@ -163,7 +163,7 @@ useEffect(() => {
               </div>
               
             </div>
-            <div className="w-full" dangerouslySetInnerHTML={{ __html: selectedArticle.content }} />
+            <div className="w-full" dangerouslySetInnerHTML={{ __html: selectednew.content }} />
 
             <div className="flex flex-row justify-start items-start w-full">
             {/* <h1 className="text-left mt-20 mb-4">Rekomendasi</h1> */}
@@ -197,9 +197,9 @@ useEffect(() => {
                 {item.name}
               </Link>
               <p>•</p>
-              <Link href={`/articles/${item.id}`}>{formatTimeLeft(item.create_at)}</Link>
+              <Link href={`/news/${item.id}`}>{formatTimeLeft(item.create_at)}</Link>
             </div>
-            <Link href={`/articles/${item.id}`} className=' flex flex-row justify-between gap-4'>
+            <Link href={`/news/${item.id}`} className=' flex flex-row justify-between gap-4'>
               <div>
                 <h1 className={`font-bold ${!isDesktop ? 'text-[16px]' : 'text-xl'} `}>{item.title}</h1>
                 <div
@@ -236,4 +236,4 @@ useEffect(() => {
   )
 }
 
-export default DetailArticles;
+export default Detailnews;

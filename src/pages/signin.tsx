@@ -34,9 +34,13 @@ const SignIn = () => {
 
     }
     return (
-        <div className='flex flex-col justify-center items-center  w-full backdrop-blur-lg bg-transparent h-screen gap-8 text-purple-950'>
-            <div className='p-8 border-[1px] border-subteks/20 rounded-2xl flex flex-col gap-4 w-[400px] bg-white'>
-
+        <div className='flex flex-col justify-center items-center  w-full backdrop-blur-lg px-10 bg-transparent h-screen gap-8 text-purple-950'>
+        <Link href={'/'} className='flex text-white flex-row gap-3 justify-center items-center'>
+        <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
+        <h1>AELI</h1>
+      </Link>
+            <div className='p-8 border-[1px] border-subteks/20 rounded-2xl flex flex-col gap-4 sm:w-[400px] w-full bg-white'>
+            
                 <h1 className='text-3xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-dongker via-purple-950 to-slate-400 ' >Sign In</h1>
                 <Input plc="Masukkan email aeli anda" label='Email' type='email' value={data.email} onChange={(e: any) => setdata({ ...data, email: e.target.value })} />
                 <Input plc='Masukkan password' label='Password' type='password' value={data.password} onChange={(e: any) => setdata({ ...data, password: e.target.value })} />

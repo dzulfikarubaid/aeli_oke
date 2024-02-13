@@ -13,6 +13,7 @@ import React, { useEffect, useRef } from 'react'
 import { motion, useAnimation, AnimatePresence, useInView } from 'framer-motion'
 import Dpp from './dpp'
 import Footer from './Footer2'
+import useResponsive from '@/components/useResponsive';
 const CardDesc = (props: any) => {
   const { judul, deskripsi } = props
   const ref = useRef(null)
@@ -47,7 +48,7 @@ const CardDesc = (props: any) => {
 }
 
 const About = () => {
-   
+      const {isMobile, isDesktop} = useResponsive()
     function CardSlider({year, desc}:any){
         const ref = useRef(null)
         const isVisible = useInView(ref)
@@ -67,26 +68,26 @@ const About = () => {
         }
       }, [isVisible])
         return(
-            <motion.div ref={ref} initial={{ opacity: 0, y:100 }} animate={mainControl} transition={{ duration: 1}} className='flex flex-col gap-2 relative border-[1px] border-white/40 rounded-xl  bg-gradient-to-b from-white/20 to-transparent mb-10'>
-           <div className='p-4 bg-dongker rounded-t-xl'>
-           <h1 className='text-3xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white/70 via-white to-slate-400  '>{year}</h1>
+            <motion.div ref={ref} initial={{ opacity: 0, y:100 }} animate={mainControl} transition={{ duration: 1}} className='flex flex-col gap-2 relative border-[1px] border-white/40 rounded-xl  bg-gradient-to-b from-white/20 to-transparent w-full'>
+           <div className='p-4 bg-dongker rounded-t-xl w-full'>
+           <h1 className='sm:text-3xl text-xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white/70 via-white to-slate-400  '>{year}</h1>
            </div>
-            <h1 className=' p-4 h-[220px] text-left text-subteks'>{desc}</h1>
+            <h1 className=' p-4 sm:h-[220px] text-left sm:text-md text-sm text-subteks'>{desc}</h1>
 
         </motion.div>
         )
     }
     function Slider(){
+   
         return(
-            <div className='text-teks w-full p-4 relative'>
+            <div className='text-teks w-full relative'>
                 <Swiper
                 className='flex flex-row justify-center items-center w-full'
             
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={20}
-            slidesPerView={3}
-            pagination
-            
+            slidesPerView={!isDesktop ? 1.4 : 2.7}
+           
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
           >
@@ -112,14 +113,13 @@ const About = () => {
                 <CardSlider year="2022-2025" desc="Ketua Umum Nurfahmi Capacity Building Program Campaign"></CardSlider>
             </SwiperSlide>
           </Swiper>
-          <div className='bg-white/20 w-[300px] rounded-xl h-5 absolute bottom-[24px] mx-auto left-0 right-0 border-[1px] border-white/20'>
-          </div>
+   
             </div>
         )
     }
     function List({text}:any){
         return(
-            <h1 className='p-2 border-[1px] border-white/40 rounded-2xl bg-gradient-to-br from-subteks/40 to-transparent sm:w-[500px]'>{text}</h1>
+            <h1 className='p-2 border-[1px] border-white/40 rounded-2xl bg-gradient-to-br from-subteks/40 to-transparent sm:w-[500px] h-[88px] sm:h-fit '>{text}</h1>
         )
     }
     const listItems = [
@@ -147,7 +147,7 @@ const About = () => {
     <a href="#history">History</a>
     <a href="#cert">Certification</a>
    </div>
-    <div className='w-full flex flex-col items-center justify-center text-teks px-20 text-center h-full bg-dongker '>
+    <div className='w-full flex flex-col items-center justify-center text-teks sm:px-20 px-10 text-center h-full bg-dongker '>
     <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' id="aeli">Asosiasi Experiental Learning Indonesia</h1>
         <p className='text-center mb-10 mt-4 text-subteks '>Asosiasi Experiential Learning Indonesia (AELI) adalah sebuah wadah yang menaungi beberapa lembaga pegiat kegiatan pendidikan alternatif berbasis alam bebas dengan pendekatan utama metode experiential Learning. Asosiasi ini lahir dilatar belakangi keprihatinan dan belum adanya wadah untuk beberapa lembaga yang selama ini dikenal dengan pegiat outbound training.</p>
            <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' id='vision'>Our Vision</h1>
@@ -171,11 +171,11 @@ const About = () => {
        <Slider></Slider>
        <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' id="cert">Certification</h1>
         <p className='text-center mb-10 mt-4 text-subteks '>AELI telah menjadi mitra BNSP dan LSP untuk mengadakan Sertifikasi Uji Kompetensi Kepemanduan Outbound sejak tahun 2014. </p>
-        <div className='w-full p-4'>
+        <div className='w-full'>
         <Swiper
         modules={[Autoplay]}
       spaceBetween={10}
-      slidesPerView={2.2}
+      slidesPerView={!isDesktop ? 1.4 : 2.3}
       autoplay={{ pauseOnMouseEnter:true,delay:2000 }}
     >
       {listItems.map((item, index) => (

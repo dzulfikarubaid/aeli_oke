@@ -73,7 +73,7 @@ async function save(e:any){
     setDirty(false);
     editorRef.current.setDirty(false);
     try {
-      const docRef = await addDoc(collection(fire, "news"), {
+      const docRef = await addDoc(collection(fire, "articles"), {
         name: userData?.displayName,
         title: value,
         content: content,
@@ -82,7 +82,7 @@ async function save(e:any){
       });
       console.log("Document written with ID: ", docRef.id);
       setLoading(false);
-      push('/news');
+      push('/articles');
     } catch (error:any) {
       console.error("Error adding document: ", error);
       setLoading(false);

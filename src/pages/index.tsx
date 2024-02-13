@@ -4,11 +4,12 @@ import { motion, useAnimation, useDragControls, useInView, useScroll, useTransfo
 import Card from './card'
 import Map from '@/components/Map'
 import Link from 'next/link'
-
+import MapMobile from '@/components/MapMobile'
 import { FaAngleDown, FaAngleUp, FaFacebook, FaInstagram, FaYoutube, } from 'react-icons/fa6'
 import { MdOutlineClose, MdOutlineEmail } from 'react-icons/md'
 import { BiLogoInstagram, BiLogoYoutube } from 'react-icons/bi'
 import Footer from './Footer2'
+import useResponsive from '@/components/useResponsive'
 const New = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const refmap = useRef(null)
@@ -51,6 +52,7 @@ const New = () => {
     target: ref,
     offset: ["start start", "end start"]
   })
+  const {isDesktop} = useResponsive()
   const [clicked, setClicked] = React.useState(false)
   const textY = useTransform(scrollYProgress, [0, 1], ["20%", "30%"])
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["20%", "0%"])
@@ -65,11 +67,11 @@ const New = () => {
     <div className=' bg-dongker overflow-x-hidden h-full relative'>
 
       <WithNavbar />
-      <div ref={ref} style={{ backgroundImage: 'url(/stars.png)', backgroundSize: 'contain', backgroundRepeat: 'repeat' }} className='w-full flex flex-col items-center justify-center text-teks px-20 text-center h-full'>
-        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, ease: "anticipate", bounce: "0.5" }, }} style={{ y: textY2, }} className='pt-20 text-32 sm:text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
+      <div ref={ref} style={{ backgroundImage: 'url(/stars.png)', backgroundSize: 'contain', backgroundRepeat: 'repeat' }} className='w-full flex flex-col items-center justify-center text-teks sm:px-20 px-10 text-center h-full'>
+        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, ease: "anticipate", bounce: "0.5" }, }} style={{ y: textY2, }} className='pt-20 text-[50px] sm:text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
         <motion.h1 className='text-subteks' style={{ y: textY3, }}>Build Capacity, Upgrade Skills, and Enhance Creativity</motion.h1>
       </div>
-      <div className='relative '>
+      <div className='sm:relative  hidden sm:block'>
         <motion.img className='w-full' style={{ y: backgroundY }} src="/mountainbg2.png" alt="" />
         <motion.img style={{ x: backgroundX, y: backgroundY }} className='absolute z-[1] -bottom-1 transform  -left-72 w-[1000px] ' src="/men23.png" alt="" />
 
@@ -77,7 +79,7 @@ const New = () => {
 
 
       </div>
-      <div className=' p-20'>
+      <div className=' p-20 px-10'>
         <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 '>Achievement is a reflection of dedication and hard work.</h1>
         <p className='text-center mb-10 mt-4 text-subteks '>AELI has notched up a series of impressive achievements, underscoring its commitment to excellence and constant progress.</p>
         <div className='flex w-full justify-center items-center mb-6'>
@@ -98,8 +100,8 @@ const New = () => {
         <motion.div ref={refmap} initial={{
           opacity: 1,
           y: -200
-        }} transition={{ duration: 1 }} animate={animation} className='flex flex-col bg-gradient-to-b mt-10 from-transparent to-purple-950 rounded-b-3xl gap-4  text-teks p-6 border-t-0 '>
-          <Map></Map>
+        }} transition={{ duration: 1 }} animate={animation} className='flex flex-col justify-center  bg-gradient-to-b mt-10 from-transparent to-purple-950 rounded-b-3xl gap-4  text-teks py-6 border-t-0 w-full'>
+         {!isDesktop? <MapMobile></MapMobile> : <Map></Map>}
           <Link href={'/members'} className='self-center border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent'>See All</Link>
         </motion.div>
         <div className='flex justify-center flex-col  items-center'>
@@ -127,7 +129,7 @@ const New = () => {
           {
             clicked &&
 
-            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -400 }} className='w-1/2 flex flex-col gap-4 text-teks rounded-3xl p-10 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker'>
+            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -400 }} className='sm:w-1/2 w-full flex flex-col gap-4 text-teks rounded-3xl p-10 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker'>
               <div className='flex flex-row-reverse'>
                 <button><MdOutlineClose size={20} onClick={() => setClicked(!clicked)} /></button>
               </div>
@@ -150,7 +152,7 @@ const New = () => {
       <Footer></Footer>
       {
           isOpen ?
-            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -50 }} className='w-1/2 flex flex-col gap-4 text-teks rounded-3xl p-10 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker fixed right-10 bottom-0 z-[99999]'>
+            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -50 }} className='sm:w-1/2 w-[80%] flex flex-col gap-4 text-teks rounded-3xl sm:p-10 p-4 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker fixed right-10 bottom-0 z-[99999]'>
               <div className='flex flex-row-reverse'>
                 <button><MdOutlineClose size={20} onClick={() => setIsOpen(!isOpen)} /></button>
               </div>
@@ -160,8 +162,8 @@ const New = () => {
               <Link href={`https://wa.me/6285156831740?text=${message}`} target='_blank' className='border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent text-center'>Send</Link>
             </motion.div>
             :
-            <motion.button initial={{ opacity: 0}} transition={{ duration: 1 }} animate={{ opacity: 1, y: 0 }} onClick={() => setIsOpen(!isOpen)} className='fixed bottom-14 -right-10'>
-              <h1 className='bg-purple-800 p-4 text-teks rotate-90 rounded-b-2xl'>CONTACT US</h1>
+            <motion.button initial={{ opacity: 0}} transition={{ duration: 1 }} animate={{ opacity: 1, y: 0 }} onClick={() => setIsOpen(!isOpen)} className='fixed bottom-14 -right-8'>
+              <h1 className='bg-purple-800 sm:p-4 p-2 px-4 sm:font-semibold text-teks sm:text-md text-sm rotate-90 '>Contact Us</h1>
             </motion.button>
         }
 

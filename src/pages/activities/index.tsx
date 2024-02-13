@@ -7,7 +7,7 @@ const ActivityCard = ({ title, imageUrl, description }:any) => {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <div className={`w-[400px] flex-col p-4  rounded-xl border-2 border-teks/40 gap-4 text-left ${clicked ? "bg-gradient-to-br from-purple-950 to-transparent ":"flex h-[400px] bg-gradient-to-br from-white/30 to-transparent" }`}>
+    <div className={`sm:w-[380px] w-full flex-col p-4  rounded-xl border-2 border-teks/40 gap-4 text-left ${clicked ? "bg-gradient-to-br from-purple-950 to-transparent ":"flex h-[400px] bg-gradient-to-br from-white/30 to-transparent" }`}>
       {clicked ? 
         <div className='flex flex-col gap-10'>
           <div className='flex flex-row-reverse w-full'>
@@ -35,10 +35,10 @@ const Activity = () => {
   return (
     <div>
       <WithNavbar />
-      <div className='px-20 bg-dongker h-full py-10 text-center text-teks'>
+      <div className='sm:px-20 px-10 bg-dongker h-full py-10 text-center text-teks'>
         <h1 className='text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 '>Activities</h1>
         <p className='text-subteks'>AELI has been active in various activities, from seminars, workshops, to social activities</p>
-        <div className='flex flex-wrap w-full mt-10 gap-4 justify-center items-center'>
+        <div className='flex flex-wrap w-full mt-10 gap-6 justify-center items-center'>
           <ActivityCard 
             title="PELANTIKAN, RAKERNAS, DAN TOT" 
             imageUrl="https://www.tourismvaganza.com/wp-content/uploads/2020/01/IMG_20200107_115718.jpg" 
