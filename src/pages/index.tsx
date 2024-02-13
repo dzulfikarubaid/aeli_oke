@@ -67,7 +67,7 @@ const New = () => {
     <div className=' bg-dongker overflow-x-hidden h-full relative'>
 
       <WithNavbar />
-      <div ref={ref} style={{ backgroundImage: 'url(/stars.png)', backgroundSize: 'contain', backgroundRepeat: 'repeat' }} className='w-full flex flex-col items-center justify-center text-teks sm:px-20 px-10 text-center h-full'>
+      <div ref={ref} style={{ backgroundImage: 'url(/stars.png)', backgroundSize: 'contain', backgroundRepeat: 'repeat' }} className='w-full flex flex-col items-center justify-center text-teks sm:px-20 px-8 text-center h-full'>
         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, ease: "anticipate", bounce: "0.5" }, }} style={{ y: textY2, }} className='pt-20 text-[50px] sm:text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
         <motion.h1 className='text-subteks' style={{ y: textY3, }}>Build Capacity, Upgrade Skills, and Enhance Creativity</motion.h1>
       </div>
@@ -79,7 +79,7 @@ const New = () => {
 
 
       </div>
-      <div className=' p-20 px-10'>
+      <div className=' p-20 px-8'>
         <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 '>Achievement is a reflection of dedication and hard work.</h1>
         <p className='text-center mb-10 mt-4 text-subteks '>AELI has notched up a series of impressive achievements, underscoring its commitment to excellence and constant progress.</p>
         <div className='flex w-full justify-center items-center mb-6'>
@@ -102,7 +102,7 @@ const New = () => {
           y: -200
         }} transition={{ duration: 1 }} animate={animation} className='flex flex-col justify-center  bg-gradient-to-b mt-10 from-transparent to-purple-950 rounded-b-3xl gap-4  text-teks py-6 border-t-0 w-full'>
          {!isDesktop? <MapMobile></MapMobile> : <Map></Map>}
-          <Link href={'/members'} className='self-center border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent'>See All</Link>
+          <Link href={'/members'} className='self-center border-[1px] border-white/20 rounded-2xl p-2 px-8 bg-gradient-to-br from-white/20 to-transparent'>See All</Link>
         </motion.div>
         <div className='flex justify-center flex-col  items-center'>
           <div>
@@ -122,14 +122,14 @@ const New = () => {
               <h1>Experiential Channel</h1></div>
 
           </div> */}
-          <button className='border-[1px] border-white/20 rounded-2xl p-2 mt-6 px-10 bg-gradient-to-br from-purple-800 to-transparent text-teks flex gap-2 items-center' onClick={() => setClicked(!clicked)}>
+          <button className='border-[1px] border-white/20 rounded-2xl p-2 mt-6 px-8 bg-gradient-to-br from-purple-800 to-transparent text-teks flex gap-2 items-center' onClick={() => setClicked(!clicked)}>
             <MdOutlineEmail size={25} />
             Send Email
           </button>
           {
             clicked &&
 
-            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -400 }} className='sm:w-1/2 w-full flex flex-col gap-4 text-teks rounded-3xl p-10 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker'>
+            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -400 }} className='sm:w-1/2 w-full flex flex-col gap-4 text-teks rounded-3xl p-8 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker'>
               <div className='flex flex-row-reverse'>
                 <button><MdOutlineClose size={20} onClick={() => setClicked(!clicked)} /></button>
               </div>
@@ -139,7 +139,7 @@ const New = () => {
               <input className='w-full text-dongker  border-[1px] border-white/20 rounded-2xl p-2 px-4' type="email" id="email" name="email" placeholder="Email" />
               <label htmlFor="message">Message</label>
               <textarea className='w-full border-[1px] border-white/20 rounded-2xl text-dongker  p-2 px-4' id="message" name="message" placeholder="Message"></textarea>
-              <button className='border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent'>Send</button>
+              <button className='border-[1px] border-white/20 rounded-2xl p-2 px-8 bg-gradient-to-br from-white/20 to-transparent'>Send</button>
             </motion.div>
           }
 
@@ -159,7 +159,7 @@ const New = () => {
         
               <label htmlFor="message">Message</label>
               <textarea onChange={(e) => setMessage(e.target.value)} value={message} className='w-full border-[1px] border-white/20 rounded-2xl text-dongker  p-2 px-4' id="message" name="message" placeholder="Message"></textarea>
-              <Link href={`https://wa.me/6285156831740?text=${message}`} target='_blank' className='border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent text-center'>Send</Link>
+              <Link href={`https://wa.me/6285156831740?text=${message}`} target='_blank' className='border-[1px] border-white/20 rounded-2xl p-2 px-8 bg-gradient-to-br from-white/20 to-transparent text-center'>Send</Link>
             </motion.div>
             :
             <motion.button initial={{ opacity: 0}} transition={{ duration: 1 }} animate={{ opacity: 1, y: 0 }} onClick={() => setIsOpen(!isOpen)} className='fixed bottom-14 -right-8'>

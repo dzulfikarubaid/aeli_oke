@@ -136,7 +136,7 @@ function Dpp() {
                     <Card nama="Nurfahmi" jabatan="Ketua Umum" foto="/Pengurus/2.png"></Card>
             
                 </div>
-                <div className='flex flex-row justify-center sm:gap-[200px] gap-[100px] w-full'>
+                <div className='flex flex-row justify-center sm:gap-[200px] gap-[50px] w-full'>
                     <div className={`flex flex-col gap-10 items-center `}>
                         <h1 className={`font-bold text-center `}>Sekretaris Jenderal</h1>
                         <Card nama="Gigih Gesang" jabatan="Sekretaris Jenderal" foto="/Pengurus/3.png"></Card>

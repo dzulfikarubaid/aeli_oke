@@ -147,7 +147,7 @@ const About = () => {
     <a href="#history">History</a>
     <a href="#cert">Certification</a>
    </div>
-    <div className='w-full flex flex-col items-center justify-center text-teks sm:px-20 px-10 text-center h-full bg-dongker '>
+    <div className='w-full flex flex-col items-center justify-center text-teks sm:px-20 px-8 text-center h-full bg-dongker '>
     <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' id="aeli">Asosiasi Experiental Learning Indonesia</h1>
         <p className='text-center mb-10 mt-4 text-subteks '>Asosiasi Experiential Learning Indonesia (AELI) adalah sebuah wadah yang menaungi beberapa lembaga pegiat kegiatan pendidikan alternatif berbasis alam bebas dengan pendekatan utama metode experiential Learning. Asosiasi ini lahir dilatar belakangi keprihatinan dan belum adanya wadah untuk beberapa lembaga yang selama ini dikenal dengan pegiat outbound training.</p>
            <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' id='vision'>Our Vision</h1>
