@@ -91,7 +91,7 @@ const Navigation = () => {
       
     {
       openmenu &&
-      <div className='flex flex-col gap-8 items-center py-8 bg-dongker fixed w-full z-[99999999999999] h-screen overflow-y-hidden'>
+      <div className='flex flex-col gap-8 items-center py-8 bg-dongker fixed w-full z-[99999999999999] h-screen overflow-y-hidden text-teks'>
     
 
         <Link href={'/about'}>About</Link>
