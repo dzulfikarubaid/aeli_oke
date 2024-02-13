@@ -78,12 +78,12 @@ const Navigation = () => {
     </div>
     <div className='fixed bg-transparent  backdrop-blur-3xl left-0 top-0 z-[9999999999999]  sm:hidden w-full'>
   
-    <div className=' flex p-8 justify-between w-full z-[99999999999999] text-white '>
+    <div className=' flex p-8 py-4 justify-between w-full z-[99999999999999] text-white '>
     <Link href={'/'} className='flex flex-row gap-3 justify-center items-center'>
         <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
       </Link>
-    <div>
+    <div className='flex flex-row gap-2'>
     <h1>{active ? active : ""}</h1>
     <button onClick={()=>setOpenMenu(!openmenu)}>
     {openmenu ? <BiX size={35}></BiX> : <BiMenu size={35}></BiMenu>}</button></div>

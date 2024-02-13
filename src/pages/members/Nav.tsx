@@ -1,11 +1,11 @@
+
 import { onAuthStateChanged, signOut } from 'firebase/auth'
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { BiMenu, BiX } from 'react-icons/bi'
 import {auth} from '@/firebase'
 import { useRouter } from 'next/router'
 
-const Navigation = () => {
+function WithNavbar(props: any) {
   const [active, setActive] = useState("")
   const {push} = useRouter()
   useEffect(() => {
@@ -24,6 +24,8 @@ const Navigation = () => {
     // Unsubscribe listener when component unmounts
     return () => unsubscribe();
   }, [active]); 
+const Navigation = () => {
+  
   function handleSignOut(){
     signOut(auth)
     .then(()=>{
@@ -37,7 +39,7 @@ const Navigation = () => {
   return (
     <div className=' z-[99999999] fixed top-0 py-6 items-center px-20 flex-row w-full justify-between backdrop-blur-3xl bg-transparent text-teks flex '>
       <a href={'/'} className='flex flex-row gap-3 justify-center items-center'>
-        <img className='w-[35px]  rounded-xl p-1 border-[0.5px] border-white/20' src="/logo-aeli-putih.png" alt="" />
+        <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
       </a>
       <div className='flex flex-row gap-6 border-[1px] border-white/20 rounded-2xl p-2 px-4 font-extralight text-sm'>
@@ -65,7 +67,6 @@ const Navigation = () => {
     </div>
   )
 }
-function WithNavbar(props: any) {
   const [openmenu, setOpenMenu] = useState(false)
   return (
     <div> <div className='bg-dongker h-fit w-full hidden sm:block'>
@@ -76,24 +77,30 @@ function WithNavbar(props: any) {
     </div>
     <div className='fixed bg-transparent  backdrop-blur-3xl left-0 top-0 z-[9999999999999]  sm:hidden w-full'>
   
-    <div className=' flex p-8 justify-between w-full z-[99999999999999] text-white '>
+    <div className=' flex p-8 py-4 justify-between w-full z-[99999999999999] text-white '>
     <a href={'/'} className='flex flex-row gap-3 justify-center items-center'>
-        <img className='w-[35px]  rounded-xl p-1 border-[0.5px] border-white/20' src="/logo-aeli-putih.png" alt="" />
+        <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
       </a>
+    <div className='flex flex-row gap-2'>
+    <h1>{active ? active : ""}</h1>
     <button onClick={()=>setOpenMenu(!openmenu)}>
-    {openmenu ? <BiX size={35}></BiX> : <BiMenu size={35}></BiMenu>}</button>
+    {openmenu ? <BiX size={35}></BiX> : <BiMenu size={35}></BiMenu>}</button></div>
     </div>
       
     {
       openmenu &&
-      <div className='flex flex-col gap-8 items-center py-8 bg-dongker fixed w-full z-[99999999999999] h-screen overflow-y-hidden'>
-    <a href={'/'}>Home</a>
+      <div className='flex flex-col gap-8 items-center py-8 bg-dongker fixed w-full z-[99999999999999] h-screen overflow-y-hidden text-teks'>
+    
+
         <a href={'/about'}>About</a>
         <a href={'/activities'}>Activities</a>
         <a href={'/members'}>Members</a>
         <a href={'/articles'}>Articles</a>
         <a href={'/news'}>News</a>
+<div className='h-[2px] w-full bg-gradient-to-r from-transparent via-subteks/40 to-transparent'></div>
+  {!active && <div className=' w-full flex flex-row justify-center gap-8 items-center'><a href={'/signup'} className='border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center'>Sign Up</a><a className='border-[1px] border-white/20 rounded-2xl p-2 px-12 text-center bg-gradient-to-br from-white/20 to-transparent ' href={'/signin'} >Sign In</a></div> }
+
     </div>
     }
     </div>
