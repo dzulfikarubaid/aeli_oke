@@ -77,7 +77,7 @@ function WithNavbar(props: any) {
     </div>
     <div className='fixed bg-transparent  backdrop-blur-3xl left-0 top-0 z-[9999999999999]  sm:hidden w-full'>
   
-    <div className=' flex p-8 justify-between w-full z-[99999999999999] '>
+    <div className=' flex p-8 justify-between w-full z-[99999999999999] text-white '>
     <Link href={'/'} className='flex flex-row gap-3 justify-center items-center'>
         <img className='w-[35px]  rounded-xl p-1 border-[0.5px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
