@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { useRouter } from 'next/router';
-import { JWT } from 'next-auth/jwt';
-import { useSession } from 'next-auth/react';
 import { FaTimes, FaExclamationTriangle, FaExclamationCircle, FaSave } from 'react-icons/fa';
 import classNames from "classnames"; 
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, fire } from '@/firebase';
+import { collection, addDoc } from "firebase/firestore"; 
+
 const RemoveImagePlugin = (editor:any) => {
     editor.ui.registry.addMenuItem('removeimage', {
       text: 'Remove Image',
@@ -34,59 +36,61 @@ export default function Write() {
   const {push} = useRouter();
   const editorRef:any = useRef(null);
   const [dirty, setDirty] = useState(false);
+   const [userData, setUserData] = useState<any>(null);
+     useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user:any) => {
+      if (user) {
+        // User signed in
+        console.log('User is signed in:', user);
+       setUserData(user)
+        
+      } else {
+        // User signed out
+        console.log('User is signed out');
+        push('/signin')
+      }
+    });
+
+    // Unsubscribe listener when component unmounts
+    return () => unsubscribe();
+  }, []); 
   useEffect(() => setDirty(false), []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const { data: session, status } = useSession();
-  const [selectedImage, setSelectedImage]:any = useState('/logo-aeli.png');
+
+  const [selectedImage, setSelectedImage]:any = useState('/logo-aeli-putih.png');
   const [isOpen, setIsOpen] = useState(false);
   
-  async function save(e:any){
-    e.preventDefault()
-    setLoading(true)
-    console.log(value);
- 
-    if (editorRef.current) {
-      const content = editorRef.current.getContent();
-    
-      setDirty(false);
-      editorRef.current.setDirty(false);
-      const data:any = {
-        name: session?.user?.name,
+  
+async function save(e:any){
+  e.preventDefault()
+  setLoading(true)
+  console.log(value);
+
+  if (editorRef.current) {
+    const content = editorRef.current.getContent();
+
+    setDirty(false);
+    editorRef.current.setDirty(false);
+    try {
+      const docRef = await addDoc(collection(fire, "articles"), {
+        name: userData?.displayName,
         title: value,
         content: content,
-        create_at: new Date(),
-        image:selectedImage
-      }
-      console.log(data);
-      // an application would save the editor content to the server here
-      const result = await fetch('/api/addarticles', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
+        create_at: new Date().toISOString(),
+        image: selectedImage
+      });
+      console.log("Document written with ID: ", docRef.id);
+      setLoading(false);
+      push('/articles');
+    } catch (error:any) {
+      console.error("Error adding document: ", error);
+      setLoading(false);
+      setError('Terjadi kesalahan dalam menambahkan dokumen ke Firestore: ' + error.message);
+    }
+  }
+}
 
-    })
-    
-    if(result.status === 200){
-        setLoading(false)
-        // e.target.reset()
-        push('/articles')
-    }
-    else {
-        setLoading(false);
-        const errorResponse = await result.json();
-        if (errorResponse) {
-          setError(errorResponse.message);
-        } else {
-          setError('Terjadi kesalahan'); 
-        }
-      }
-      
-      
-    }
-  };
 
   const handleEditorChange = (content:any, editor:any) => {
     console.log(content);
@@ -106,7 +110,7 @@ export default function Write() {
   };
 
   return (
-    <div className='relative w-full h-screen'>
+    <div className='relative w-full h-screen text-black'>
       {
       isOpen && (
         <div className="flex h-full  fixed flex-col justify-center items-center w-full z-[99999999999] backdrop-blur-xl overflow-hidden">
@@ -117,11 +121,12 @@ export default function Write() {
   
         {selectedImage && (
           <div>
-            <div className='p-4 bg-gray-50 flex flex-col justify-center items-center' >
+            <div className='p-4 bg-black rounded-xl flex flex-col justify-center items-center' >
             <div className='flex flex-row-reverse w-full'>
               <button onClick={() => setSelectedImage(null)}><FaTimes size={20}></FaTimes></button>
             </div>
             <img
+            
               width={"250px"}
               src={selectedImage}
             />
@@ -171,7 +176,7 @@ export default function Write() {
     reader.readAsDataURL(file);
           }}
         />
-        <label htmlFor="myImage" className='text-gray-400'>SVG, PNG, JPG (rekomendasi: ukuran 1x1).</label>
+        <label htmlFor="myImage" className='text-gray-400'>SVG, PNG, JPG (rekomendasi: aspect ratio 2x1).</label>
         </div>
         
         <button className='bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-xl ' onClick={save}>{loading ? 'Loading...' : 'Publish'}</button>
@@ -194,7 +199,7 @@ export default function Write() {
         )}
       </div>
     <Editor
-      apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
+      apiKey={"2o9x501nuyep51nch4tkm64sa38blzs2lfha634xa0p7y4x3"}
       id='editor'
       onInit={(evt:any, editor:any) => {
         editorRef.current = editor;
