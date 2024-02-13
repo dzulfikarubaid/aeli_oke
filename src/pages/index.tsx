@@ -66,7 +66,7 @@ const New = () => {
 
       <WithNavbar />
       <div ref={ref} style={{ backgroundImage: 'url(/stars.png)', backgroundSize: 'contain', backgroundRepeat: 'repeat' }} className='w-full flex flex-col items-center justify-center text-teks px-20 text-center h-full'>
-        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, ease: "anticipate", bounce: "0.5" }, }} style={{ y: textY2, }} className='pt-20 text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
+        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, ease: "anticipate", bounce: "0.5" }, }} style={{ y: textY2, }} className='pt-20 text-32 sm:text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
         <motion.h1 className='text-subteks' style={{ y: textY3, }}>Build Capacity, Upgrade Skills, and Enhance Creativity</motion.h1>
       </div>
       <div className='relative '>
