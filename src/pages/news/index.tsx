@@ -7,8 +7,8 @@ import { BiPencil } from 'react-icons/bi';
 import Footer from '../Footer2';
 import { format } from 'date-fns';
 
-const news = () => {
-  const [news, setnews] = React.useState<any>([])
+const News = () => {
+  const [news, setNews] = React.useState<any>([])
   const formatTimeLeft = (createdAt: string) => {
     const now = new Date();
     const createdAtDate = new Date(createdAt);
@@ -36,7 +36,7 @@ const news = () => {
           id: doc.id, // Include the id here
           ...doc.data()
         }));
-        setnews(fetchednews);
+        setNews(fetchednews);
       } catch (error) {
         console.error('Error fetching news: ', error);
       }
@@ -83,4 +83,4 @@ const news = () => {
   )
 }
 
-export default news
+export default News
