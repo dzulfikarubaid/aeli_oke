@@ -100,8 +100,8 @@ const Navigation = () => {
         <Link href={'/members'}>Members</Link>
         <Link href={'/articles'}>Articles</Link>
         <Link href={'/news'}>News</Link>
-<div className='h-[2px] w-full bg-gradient-to-r from-transparent via-subteks/40 to-transparent'></div>
-  {!active ? <div className=' w-full flex flex-row justify-center gap-8 items-center'><Link href={'/signup'} className='border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center'>Sign Up</Link><Link className='border-[1px] border-white/20 rounded-2xl p-2 px-12 text-center bg-gradient-to-br from-white/20 to-transparent ' href={'/signin'} >Sign In</Link></div>: <button className='w-full border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center mx-8' onClick={handleSignOut}>Sign Out</button> }
+<div className='h-[2px] w-full bg-gradient-to-r from-transparent via-subteks/40 to-transparent px-8'></div>
+  {!active ? <div className=' w-full flex flex-row justify-center gap-8 items-center'><Link href={'/signup'} className='border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center'>Sign Up</Link><Link className='border-[1px] border-white/20 rounded-2xl p-2 px-12 text-center bg-gradient-to-br from-white/20 to-transparent ' href={'/signin'} >Sign In</Link></div>: <button className='w-full border-[1px] border-white/20 bg-gradient-to-br from-purple-950 to-transparent rounded-2xl p-2 px-12 text-center ' onClick={handleSignOut}>Sign Out</button> }
 
     </div>
     }
