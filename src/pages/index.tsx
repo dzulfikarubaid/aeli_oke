@@ -82,7 +82,7 @@ const New = () => {
         <p className='text-center mb-10 mt-4 text-subteks '>AELI has notched up a series of impressive achievements, underscoring its commitment to excellence and constant progress.</p>
         <div className='flex w-full justify-center items-center mb-6'>
           <img src="/archer.png" alt="" /></div>
-        <div className='flex flex-row w-full justify-around gap-6'>
+        <div className='flex flex-wrap w-full justify-center gap-6'>
 
           <Card isVisible={true} judul="Pelatihan Berdaya Saing" deskripsi="AELI membuat program pelatihan bagi anggota baik perorangan maupun Lembaga"></Card>
           <Card judul="Tim Ahli Kementrian" deskripsi="AELI menjadi Tim Ahli Kementerian Pariwisata dalam merancang SKKNI Kepemanduan Outbound"></Card>
