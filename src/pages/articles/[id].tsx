@@ -125,7 +125,7 @@ useEffect(() => {
   return (
   <div className="w-full ">
   <WithNavbar></WithNavbar>
-    <div className="flex flex-col justify-center items-center pt-20 bg-gradient-to-b from-dongker via-purple-950/50 to-dongker h-fit">
+    <div className="flex flex-col justify-center items-center pt-20 bg-dongker text-teks h-fit">
      
        <div className={`flex flex-col justify-center items-center w-full px-6`}>
         {selectedArticle ? (
