@@ -149,7 +149,7 @@ function Dpp() {
                 </div>
                 <div className='flex flex-col w-full justify-center items-center'>
                     <h1 className='text-xl text-center  mb-10'>Komite Pelaksana</h1>
-                    <div className={`flex flex-wrap gap-10 justify-center ${!isDesktop ? 'w-full' : 'w-full'}`}>
+                    <div className={`flex flex-wrap sm:gap-10 justify-center w-full gap-6`}>
                     <Card nama="Muchamad Mansur" jabatan="Ketua Komite Pelaksana" foto="/useroke.png"></Card>
                     <Card nama="Yohanes Batista Hanes" jabatan="Anggota Komite Pelaksana" foto="/useroke.png"></Card>
                     <Card nama="M. Deny Yudiana" jabatan="Anggota Komite Pelaksana" foto="/useroke.png"></Card>
@@ -164,7 +164,7 @@ function Dpp() {
                 </div>
                 <div className='flex flex-col w-full justify-center items-center'>
                     <h1 className='text-xl text-center  mb-10'>Ketua Bidang</h1>
-                    <div className='flex flex-wrap gap-10 justify-center w-full'>
+                    <div className='flex flex-wrap sm:gap-10 gap-6 justify-center w-full'>
                     <Card nama="Unang Rusnadi" jabatan="Kabid. Keanggotaan" foto="/Pengurus/6.png"></Card>
                     <Card nama="Dian Wibowo" jabatan="Kabid. Keorganisasian" foto="/Pengurus/7.png"></Card>
                     <Card nama="Ardian Rangga" jabatan="Kabid. Pendidikan dan Pelatihan" foto="/Pengurus/8.png"></Card>
