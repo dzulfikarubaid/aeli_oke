@@ -124,7 +124,7 @@ function Dpp() {
                 </div>
                 <div>
                     <h1 className='text-xl text-center  mb-10'>Dewan Pembina</h1>
-                    <div className='flex flex-row gap-10'>
+                    <div className='flex flex-row sm:gap-10 gap-4'>
                     <Card nama="Muhammad Haydar" jabatan="Ketua Dewan Pembina" foto="/Foto Pengurus/heydar.jpg"></Card>
                     <Card nama="Adhik Iwan Sulistiyanto" jabatan="Anggota Dewan Pembina" foto="/useroke.png"></Card>
                     <Card nama="Ronie Ibrahim" jabatan="Anggota Dewan Pembina" foto="/useroke.png"></Card>

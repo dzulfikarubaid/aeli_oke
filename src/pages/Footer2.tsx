@@ -14,19 +14,19 @@ const Footer = () => {
             <h1>AELI</h1>
           </div>
           <div>
-            <p className='font-extralight text-lg text-teks/90'>Experience is not necessarily Experiential</p>
+            <p className='font-extralight sm:text-lg text-md text-teks/90'>Experience is not necessarily Experiential</p>
           </div>
 
 
         </div>
-        <div className='flex flex-col gap-4 text-white/50'>
+        <div className='flex flex-col gap-4 text-white/50 sm:text-md text-sm'>
           <h1 className='text-white font-semibold'>Organization</h1>
           <Link href={'/about'}>About</Link>
           <Link href={'/activities'}>Activities</Link>
           <Link href={'/members'}>Members</Link>
           <Link href={'/blog'}>Blog</Link>
         </div>
-        <div className='flex flex-col gap-4 text-white/50'>
+        <div className='flex flex-col gap-4 text-white/50 sm:text-md text-sm'>
           <h1 className='text-white font-semibold'>Legal</h1>
           <Link href={'/about'}>Terms of Services</Link>
           <Link href={'/activities'}>Privacy Policy </Link>
