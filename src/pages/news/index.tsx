@@ -54,7 +54,7 @@ const News = () => {
   return (
     <div className='bg-dongker text-white w-full relative'>
       <WithNavbar></WithNavbar>
-      <div className='sm:px-20 px-10 w-full flex flex-col gap-10 '>
+      <div className='sm:px-20 px-8 w-full flex flex-col gap-10 '>
         <div className='flex flex-row items-center justify-center gap-6 mt-4'>
           <Link href='/news/write' className='p-2 fixed right-6 bottom-5 bg-purple-800 rounded-2xl flex flex-row gap-2 items-center text-white'><BiPencil size={35}></BiPencil></Link>
 
