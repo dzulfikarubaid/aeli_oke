@@ -34,7 +34,7 @@ const SignIn = () => {
 
     }
     return (
-        <div className='flex flex-col justify-center items-center  w-full  bg-dongker h-screen gap-8 text-purple-950'>
+        <div className='flex flex-col justify-center items-center  w-full  bg-dongker px-8 h-screen gap-8 text-purple-950'>
         <Link href={'/'} className='flex text-white flex-row gap-3 justify-center items-center'>
         <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
