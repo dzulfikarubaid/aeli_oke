@@ -38,7 +38,7 @@ const Activity = () => {
       <div className='px-20 bg-dongker h-full py-10 text-center text-teks'>
         <h1 className='text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 '>Activities</h1>
         <p className='text-subteks'>AELI has been active in various activities, from seminars, workshops, to social activities</p>
-        <div className='flex flex-wrap w-full mt-10 gap-4'>
+        <div className='flex flex-wrap w-full mt-10 gap-4 justify-center items-center'>
           <ActivityCard 
             title="PELANTIKAN, RAKERNAS, DAN TOT" 
             imageUrl="https://www.tourismvaganza.com/wp-content/uploads/2020/01/IMG_20200107_115718.jpg" 

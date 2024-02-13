@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import auth from '@/firebase'
+import {auth} from '@/firebase'
 import { createUserWithEmailAndPassword, updateCurrentUser, updateProfile } from 'firebase/auth'
 import { useRouter } from 'next/router'
 
@@ -37,10 +37,7 @@ const SignUp = () => {
             <div className='p-8 border-2 border-subteks/20 rounded-2xl flex flex-col gap-4 w-[400px] bg-gradient-to-br from-teks/20 to-transparent'>
 
                 <h1 className='text-3xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' >Sign Up</h1>
-                <h1>{data.name}</h1>
-                <h1>{data.email}</h1>
-                <h1>{data.password}</h1>
-                <h1>{data.confirmation}</h1>
+                
 
                 <Input plc="Masukkan nama lengkap anda" label='Full Name' type='text' value={data.name} onChange={(e: any) => setdata({ ...data, name: e.target.value })} />
                 <Input plc="Masukkan email aeli anda" label='Email' type='email' value={data.email} onChange={(e: any) => setdata({ ...data, email: e.target.value })} />

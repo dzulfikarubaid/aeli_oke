@@ -154,7 +154,7 @@ const About = () => {
         <p className='text-center mb-10 mt-4 text-subteks '>Menjadi wadah dan mitra yang berkualitas bagi seluruh lembaga atau perorangan pengguna metode pelatihan berbasis pengalaman di Indonesia dan bertanggung jawab terhadap pengembangan kualitas manusia Indonesia.</p>
 
         <h1 className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 ' id='mission'>Our Mission</h1>
-        <div className='flex flex-row justify-between w-full mt-4 mb-10'>
+        <div className='flex flex-wrap gap-4 justify-center w-full mt-4 mb-10'>
             <CardDesc deskripsi="Memasyarakatkan pelatihan berbasis pengalaman kepada masyarakat Indonesia" >
             </CardDesc>
             <CardDesc deskripsi="Meningkatkan kualitas pelatihan dan pendidikan berbasis pengalaman, sehingga menjadi metode pelatihan yang efektif dan diakui di Indonesia"></CardDesc>
