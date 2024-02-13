@@ -32,7 +32,7 @@ const SignUp = () => {
             });
     }
     return (
-        <div className='flex flex-col justify-center items-center backdrop-blur-3xl px-8 bg-transparent h-screen gap-8 text-white'>
+        <div className='flex flex-col justify-center items-center px-8 bg-dongker h-screen gap-8 text-white'>
             <Link href={'/'} className='flex flex-row gap-3 justify-center items-center'>
         <img className='w-[35px]  rounded-xl p-1 border-[1px] border-white/20' src="/logo-aeli-putih.png" alt="" />
         <h1>AELI</h1>
