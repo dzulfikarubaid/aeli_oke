@@ -113,8 +113,8 @@ async function save(e:any){
     <div className='relative w-full h-screen text-black'>
       {
       isOpen && (
-        <div className="flex h-full  fixed flex-col justify-center items-center w-full z-[99999999999] backdrop-blur-xl overflow-hidden px-8">
-      <div className="bg-white rounded-xl flex flex-col gap-10 p-10 sm:w-[450px] w-full border-2 overflow-y-auto">
+        <div className="flex h-full  fixed flex-col justify-center items-center w-full z-[99999999999] backdrop-blur-xl overflow-hidden p-8">
+      <div className="bg-white rounded-xl flex flex-col gap-10 sm:p-10 p-4 sm:w-[450px] w-full border-2 overflow-y-auto">
         <div className='flex flex-row-reverse'>
           <button onClick={() => setIsOpen(!isOpen)}><FaTimes size={20}></FaTimes></button>
         </div>
