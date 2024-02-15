@@ -222,7 +222,7 @@ async function save(e:any){
     />
     
    
-    <div className='fixed right-10 bottom-12 z-[99999999] flex flex-row gap-10 justify-center items-center'>
+    <div className='fixed sm:right-10 sm:bottom-12 right-6 bottom-5 z-[99999999] flex flex-row gap-10 justify-center items-center'>
     <button className='bg-blue-900 hover:bg-gray-800 text-white font-bold py-3 px-3 rounded-xl ' onClick={() => setIsOpen(!isOpen)}><FaSave size={25}/></button>
     
     
