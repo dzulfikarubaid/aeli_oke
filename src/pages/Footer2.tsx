@@ -8,7 +8,7 @@ const Footer = () => {
       <div className='h-[2px] w-full bg-gradient-to-r from-transparent via-subteks/40 to-transparent'></div>
       <div className='w-full  py-20 sm:flex-row flex-col flex text-teks justify-center gap-10'>
         <div className='w-full flex-row flex gap-8'>
-        <div className='flex flex-col gap-10 items-start'>
+        <div className='flex flex-col sm:gap-10 gap-4 items-start'>
           <div className='flex flex-row gap-3 justify-center items-center text-teks'>
             <img className='w-[35px]  rounded-xl p-1 border-[0.5px] border-white/20' src="/logo-aeli-putih.png" alt="" />
             <h1>AELI</h1>

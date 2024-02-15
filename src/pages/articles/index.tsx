@@ -1,11 +1,13 @@
 import { auth, fire } from '@/firebase';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import WithNavbar from '../navigation';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Link from 'next/link';
-import { BiPencil } from 'react-icons/bi';
+import { BiPencil, BiSearch, BiX } from 'react-icons/bi';
 import Footer from '../Footer2';
 import { format } from 'date-fns';
+import { FaSearch } from 'react-icons/fa';
+import { setActive } from '@material-tailwind/react/components/Tabs/TabsContext';
 
 const Articles = () => {
   const [articles, setArticles] = React.useState<any>([])
@@ -28,12 +30,15 @@ const Articles = () => {
       return  createdAtDate.toLocaleDateString('id-ID', options);
     }
   };
+  const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const querySnapshot = await getDocs(collection(fire, "articles"));
+        const q = query(collection(fire, "articles"), orderBy("create_at", "desc"));
+        const querySnapshot = await getDocs(q);
         const fetchedArticles = querySnapshot.docs.map(doc => ({
-          id: doc.id, // Include the id here
+          id: doc.id,
           ...doc.data()
         }));
         setArticles(fetchedArticles);
@@ -44,6 +49,15 @@ const Articles = () => {
     fetchData();
   }, []);
 
+  const handleSearchChange = (event:any) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredArticles = articles.filter((article:any) => {
+    return article.title.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+
   const renderHTML = (htmlString: any) => {
     return { __html: htmlString };
   };
@@ -51,17 +65,31 @@ const Articles = () => {
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength) + '...';
   };
+  const [searchActive, setSearchActive] = useState(false)
   return (
     <div className='bg-dongker text-white w-full relative'>
       <WithNavbar></WithNavbar>
-      <div className='sm:px-20 px-4 w-full flex flex-col gap-10 '>
-        <div className='flex flex-row items-center justify-center gap-6 mt-4'>
-          <Link href='/articles/write' className='p-2 fixed right-6 bottom-5 bg-purple-800 rounded-2xl flex flex-row gap-2 items-center text-white'><BiPencil size={35}></BiPencil></Link>
+      <div className='sm:px-10 px-4 w-full flex flex-col gap-10 '>
+        <div className='flex flex-row items-center  gap-6 mt-4'>
+        <div className='fixed right-6 bottom-5 flex flex-col gap-4'>
+        {!searchActive ? <button className='p-2  bg-gradient-to-br from-white/40 to-transparent border-[1px] border-white/20 text-white rounded-2xl flex flex-row gap-2 items-center  w-fit' onClick={()=>setSearchActive(true)}><BiSearch size={30}></BiSearch></button> : <div className='flex flex-row gap-3 rounded-2xl border-gray-500 bg-white border-[1px]  pl-4 py-2 items-center  text-purple-950 w-full'>
+      <FaSearch ></FaSearch>
+      <input type="text" 
+        placeholder="Cari artikel..."
+        value={searchQuery}
+        onChange={handleSearchChange} className='focus:outline-none bg-transparent text-dongker text-sm sm:w-[400px]' />
+        <button onClick={()=>setSearchActive(false)} className='px-2'><BiX size={30}></BiX></button>
+      </div>}
+        <div className='w-full flex flex-row-reverse'>
+        <Link href='/articles/write' className='p-2  bg-purple-950 border-[1px] border-white/20 rounded-2xl flex flex-row gap-2 items-center text-white w-fit'><BiPencil size={30}></BiPencil></Link></div>
+        
+        </div>
+          
 
         </div>
         <div className='flex flex-wrap gap-6 w-full justify-center'>
           {
-            articles.map((item: any) => {
+            filteredArticles.map((item: any) => {
               return (
                 <Link key={item.id} href={`/articles/${item.id}`} className={`rounded-2xl sm:p-8 p-4 w-full sm:w-[380px] hover:border-white/20 hover:bg-gradient-to-t hover:from-white/10 hover:to-transparent flex flex-col text-subteks mt-4 justify-between`}>
                   <div>
